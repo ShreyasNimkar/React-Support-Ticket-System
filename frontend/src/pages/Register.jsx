@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import { register, reset } from "../features/auth/authSlice";
 import Spinner from "../components/Spinner";
+import Spline from "../components/Spline";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -129,11 +130,12 @@ function Register() {
 
         
       </div> */}
-      <div className="w-full h-[90vh] flex sm:flex-row flex-col">
-        <div className="w-[100%] sm:w-[60%] flex flex-col justify-center items-center gap-4"></div>
-        <div className="w-[100%] sm:w-[40%] flex flex-col justify-center items-center gap-4">
+      <Spline/>
+      <div className="w-full h-[91.5vh] flex sm:flex-row flex-col ">
+        <div className="w-[100%] sm:w-[55%] flex flex-col justify-center items-center gap-4 bg-black"></div>
+        <div className="w-[100%] sm:w-[45%] flex flex-col justify-center items-center gap-4 bg-black">
           <section
-            class="bg-gray-50 rounded-xl dark:bg-gray-900"
+            class="bg-gray-50 rounded-xl dark:bg-gray-900 w-[70%]"
             onSubmit={onSubmit}
           >
             <div class="flex flex-col items-center justify-center px-6  py-4 ">

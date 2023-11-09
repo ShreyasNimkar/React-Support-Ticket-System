@@ -1,7 +1,6 @@
 import Spline from "../components/Spline";
 import { AiOutlineQuestionCircle, AiFillTags } from "react-icons/ai";
 import { Link } from "react-router-dom";
-
 function Home() {
   return (
     <>
@@ -18,9 +17,9 @@ function Home() {
           <AiFillTags /> View my tickets
         </Link>
       </div> */}
-      <div className="w-full h-[90vh] flex">
-        <div className="w-[100%] flex flex-col justify-center items-center gap-7">
-          <p className="capitalize text-2xl">Tell us your problems !</p>
+      <div className="w-full h-[91.5vh] flex bg-bg-home bg-cover bg-fixed">
+        <div className="w-[100%] flex flex-col justify-center items-center gap-4">
+          <p className="capitalize text-4xl font-bold p-2 text-fuchsia-50">Tell us your problems !</p>
           <Link
             to="/new-ticket"
             class="cursor-pointer relative inline-flex items-center px-[7.5rem] py-3 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50"

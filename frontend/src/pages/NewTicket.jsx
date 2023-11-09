@@ -141,20 +141,20 @@ function NewTicket() {
   }
 
   return (
-    <div className="w-full ">
-      <div className="w-[40%] mx-auto bg-white p-8 rounded shadow-md">
+    <div className="w-full p-14  bg-new-ticket bg-cover bg-fixed h-[91.5vh]">
+      <div className="w-[40%] mx-auto bg-inherit p-8 shadow-md rounded-xl opacity-90">
         <span>
           <Link to="/" className="mb-4 w-[10%]">
             <AiOutlineArrowLeft />
           </Link>
         </span>
-        <h1 className="text-2xl font-bold mb-4">Create New Ticket</h1>
+        <h1 className="text-2xl font-bold mb-4 text-fuchsia-50">Create New Ticket</h1>
 
         <form onSubmit={onSubmit}>
           <div className="mb-4">
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-600"
+              className="block text-sm font-medium text-fuchsia-50"
             >
               Customer Name
             </label>
@@ -169,7 +169,7 @@ function NewTicket() {
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-600"
+              className="block text-sm font-medium text-fuchsia-50"
             >
               Customer Email
             </label>
@@ -184,7 +184,7 @@ function NewTicket() {
           <div className="mb-4">
             <label
               htmlFor="product"
-              className="block text-sm font-medium text-gray-600"
+              className="block text-sm font-medium text-fuchsia-50"
             >
               Product
             </label>
@@ -205,7 +205,7 @@ function NewTicket() {
           <div className="mb-4">
             <label
               htmlFor="description"
-              className="block text-sm font-medium text-gray-600"
+              className="block text-sm font-medium text-fuchsia-50"
             >
               Description of Issue
             </label>

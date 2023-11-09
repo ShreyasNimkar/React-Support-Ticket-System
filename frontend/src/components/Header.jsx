@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
 import { useState } from "react";
+
 // import { useWindowHeight } from "@react-hook/window-size";
 
 function Header() {
@@ -49,14 +50,15 @@ function Header() {
     //   </ul>
     // </header>
     <>
+    
       <div
-        className={`hidden lg:flex justify-between items-center  h-[3rem] px-16 text-black z-[100] transition-all bg-transparent duration-300 ease-in-out `}
+        className="hidden lg:flex justify-between items-center  h-[4rem] px-20 text-black z-[100] transition-all duration-300 ease-in-out shadow-lg bg-slate-800 "
       >
         <Link
           to="/"
-          className="w-[20%] h-full flex justify-around items-center"
+          className="w-[20%] p-2 flex justify-around items-center rounded-xl mx-2 bg-blue-500 text-fuchsia-50 text-md font-bold"
         >
-          Logo
+          Support Desk
         </Link>
         <div className="w-[80%] h-full flex gap-10 items-center justify-end font-spaceGrotesk font-semibold text-lg">
           {/* <div
@@ -67,21 +69,21 @@ function Header() {
                     </div> */}
 
           {user ? (
-            <div className="cursor-pointer" onClick={onLogout}>
+            <div className="cursor-pointer rounded-xl mx-2 bg-blue-500 text-fuchsia-50 text-md font-bold px-3 py-2 " onClick={onLogout}>
               Logout
             </div>
           ) : (
             <>
               <Link
                 to="/login"
-                className="cursor-pointer hover-underline-animation"
+                className="cursor-pointer hover-underline-animation rounded-xl px-4 bg-blue-400 text-fuchsia-50 py-2"
                 // onClick={() => router.push("/team")}
               >
                 Login
               </Link>
               <Link
                 to="/register"
-                className="cursor-pointer hover-underline-animation"
+                className="cursor-pointer hover-underline-animation rounded-xl px-4 mr-3 bg-green-400 text-fuchsia-50 py-2"
                 // onClick={() => router.push("/team")}
               >
                 Register

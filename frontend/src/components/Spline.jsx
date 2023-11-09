@@ -15,11 +15,11 @@ const Model = () => {
     <>
       <Spline
         style={{
-          height: "100vh",
+          height: "90vh",
           width: "100vh",
-          top: "0",
+          top: "1",
           position: "absolute",
-          zIndex: "-1",
+          zIndex: "",
           backgroundColor: "white",
         }}
         scene="https://draft.spline.design/9jOtr8jogEDGTROB/scene.splinecode"
