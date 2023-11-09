@@ -13,7 +13,8 @@ import { BackButton } from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import NoteItem from "../components/NoteItem";
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 const customStyles = {
   content: {
     width: "600px",
@@ -60,17 +61,20 @@ function Ticket() {
 
   const onTicketClose = () => {
     dispatch(closeTicket(ticketId));
-    toast.success("ticket closed");
+    toast.success("Ticket closed");
     navigate("/tickets");
   };
+
   const onNoteSubmit = (e) => {
     e.preventDefault();
     dispatch(createNote({ noteText, ticketId }));
     closeModal();
   };
+
   const openModal = () => {
     setModalIsOpen(true);
   };
+
   const closeModal = () => {
     setModalIsOpen(false);
   };
@@ -80,34 +84,47 @@ function Ticket() {
   }
 
   if (isError || notesIsError) {
-    return <h3>Somenthing went wrong</h3>;
+    return <h3>Something went wrong</h3>;
   }
 
   return (
-    <div className="ticket-page">
-      <header className="ticket-header">
-        <BackButton url="/tickets" />
-        <h2>
+    <div className=" mx-8 mt-8 mb-10">
+      <header className="bg-white p-4 rounded-md shadow-md mb-8">
+        <Link to="/tickets" className="mb-4 w-[10%]">
+          <AiOutlineArrowLeft />
+        </Link>
+        <h2 className="text-2xl font-bold">
           Ticket ID: {ticket._id}
-          <span className={`status status-${ticket.status}`}>
+          <span
+            className={`ml-2 text-sm font-semibold ${
+              ticket.status === "open"
+                ? "text-green-500"
+                : ticket.status === "in progress"
+                ? "text-yellow-500"
+                : "text-red-500"
+            }`}
+          >
             {ticket.status}
-          </span>{" "}
+          </span>
         </h2>
-        <h3>
+        <p className="text-gray-600">
           Date submitted: {new Date(ticket.createdAt).toLocaleString("en-US")}
-        </h3>
-        <h3>Product: {ticket.product}</h3>
-        <hr />
+        </p>
+        <p className="text-gray-600">Product: {ticket.product}</p>
+        <hr className="my-4" />
         <div className="ticket-desc">
-          <h3>Description of issue</h3>
+          <h3 className="text-xl font-semibold mb-2">Description of issue</h3>
           <p>{ticket.description}</p>
         </div>
-        <h2>Notes</h2>
+        <h2 className="text-2xl mt-4 mb-2">Notes</h2>
       </header>
 
       {ticket.status !== "closed" && (
-        <button className="btn" onClick={openModal}>
-          <AiFillPlusCircle />
+        <button
+          className="bg-blue-500 text-white py-2 px-5 rounded-md mb-4"
+          onClick={openModal}
+        >
+          <AiFillPlusCircle className="mr-2" />
           Add Note
         </button>
       )}
@@ -118,23 +135,29 @@ function Ticket() {
         style={customStyles}
         contentLabel="Add Note"
       >
-        <h2>Add Note</h2>
-        <button className="btn-close" onClick={closeModal}>
+        <h2 className="text-2xl font-bold mb-4">Add Note</h2>
+        <button
+          className="bg-red-500 text-white py-2 px-4 rounded-md absolute top-2 right-2"
+          onClick={closeModal}
+        >
           <AiFillCloseCircle />
         </button>
         <form onSubmit={onNoteSubmit}>
-          <div className="form-group">
+          <div className="mb-4">
             <textarea
               name="noteText"
               id="noteText"
-              className="form-control"
-              placeholder="note text"
+              className="w-full p-2 border rounded-md"
+              placeholder="Note text"
               value={noteText}
               onChange={(e) => setNoteText(e.target.value)}
             ></textarea>
           </div>
-          <div className="form-group">
-            <button className="btn" type="submit">
+          <div className="mb-4">
+            <button
+              className="bg-blue-500 text-white py-2 px-4 rounded-md"
+              type="submit"
+            >
               Submit
             </button>
           </div>
@@ -146,7 +169,10 @@ function Ticket() {
       ))}
 
       {ticket.status !== "closed" && (
-        <button className="btn btn-block btn-danger" onClick={onTicketClose}>
+        <button
+          className="bg-red-500 text-white py-2 px-4 rounded-md"
+          onClick={onTicketClose}
+        >
           Close Ticket
         </button>
       )}

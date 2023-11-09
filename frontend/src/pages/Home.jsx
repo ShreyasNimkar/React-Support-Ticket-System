@@ -19,7 +19,7 @@ function Home() {
         </Link>
       </div> */}
       <div className="w-full h-[90vh] flex">
-        <div className="w-[100%] flex flex-col justify-center items-center gap-4">
+        <div className="w-[100%] flex flex-col justify-center items-center gap-7">
           <p className="capitalize text-2xl">Tell us your problems !</p>
           <Link
             to="/new-ticket"
