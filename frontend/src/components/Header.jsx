@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
 import { useState } from "react";
-import { useWindowHeight } from "@react-hook/window-size";
+// import { useWindowHeight } from "@react-hook/window-size";
 
 function Header() {
   const navigate = useNavigate();
@@ -19,15 +19,7 @@ function Header() {
 
   const [modalVisibility, setModalVisibility] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const windowHeight = useWindowHeight();
-  const headerClass =
-    scrollPosition === 0
-      ? "opacity-100"
-      : scrollPosition > windowHeight - 100
-      ? "sticky top-0"
-      : scrollPosition > 50 //navbar length
-      ? "opacity-0"
-      : "opacity-100";
+
   return (
     // <header className="header">
     //   <div className="logo">
@@ -58,11 +50,14 @@ function Header() {
     // </header>
     <>
       <div
-        className={`hidden lg:flex justify-between items-center w-full h-[3rem] px-16 text-black z-[100] transition-all bg-transparent duration-300 ease-in-out ${headerClass}`}
+        className={`hidden lg:flex justify-between items-center  h-[3rem] px-16 text-black z-[100] transition-all bg-transparent duration-300 ease-in-out `}
       >
-        <div className="w-[20%] h-full flex justify-around items-center">
+        <Link
+          to="/"
+          className="w-[20%] h-full flex justify-around items-center"
+        >
           Logo
-        </div>
+        </Link>
         <div className="w-[80%] h-full flex gap-10 items-center justify-end font-spaceGrotesk font-semibold text-lg">
           {/* <div
                         className="cursor-pointer hover-underline-animation"
@@ -72,7 +67,9 @@ function Header() {
                     </div> */}
 
           {user ? (
-            <div onClick={onLogout}>Logout</div>
+            <div className="cursor-pointer" onClick={onLogout}>
+              Logout
+            </div>
           ) : (
             <>
               <Link
@@ -95,7 +92,7 @@ function Header() {
       </div>
 
       <div
-        className={`z-30 flex lg:hidden static justify-around items-center w-full h-[7.5vh] text-black ${headerClass}`}
+        className={`z-30 flex lg:hidden static justify-around items-center w-full h-[7.5vh] text-black `}
       >
         <Link
           to="/"
