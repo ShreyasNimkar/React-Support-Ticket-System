@@ -1,6 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
 * {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,7 +18,7 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 100vh;
-  background-color: #000;
+
   overflow-y: scroll;
 }
 
@@ -417,4 +425,4 @@ footer {
   .heading p {
     font-size: 1.5rem;
   }
-}
+} */

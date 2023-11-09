@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
     <>
-      <div className="home-div">
+      {/* <div className="home-div">
         <section className="heading">
           <h1>What do you need help with</h1>
         </section>
@@ -17,7 +17,8 @@ function Home() {
         <Link to="/tickets" className="btn btn-block">
           <AiFillTags /> View my tickets
         </Link>
-      </div>
+      </div> */}
+      <div className=" h-[90vh] bg-violet-600">asdasd</div>
     </>
   );
 }

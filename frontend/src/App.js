@@ -13,10 +13,9 @@ import Spline from "./components/Spline";
 function App() {
   return (
     <>
-      <Spline />
       <Router>
         <div className="container">
-          <Header />
+          {/* <Header /> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />

@@ -2,6 +2,8 @@ import { AiOutlineCheck, AiOutlineUser, AiOutlineLogout } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
+import { useState } from "react";
+import { useWindowHeight } from "@react-hook/window-size";
 
 function Header() {
   const navigate = useNavigate();
@@ -15,34 +17,148 @@ function Header() {
     navigate("/");
   };
 
+  const [modalVisibility, setModalVisibility] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const windowHeight = useWindowHeight();
+  const headerClass =
+    scrollPosition === 0
+      ? "opacity-100"
+      : scrollPosition > windowHeight - 100
+      ? "sticky top-0"
+      : scrollPosition > 50 //navbar length
+      ? "opacity-0"
+      : "opacity-100";
   return (
-    <header className="header">
-      <div className="logo">
-        <Link to="/">Home</Link>
+    // <header className="header">
+    //   <div className="logo">
+    //     <Link to="/">Home</Link>
+    //   </div>
+    //   <ul>
+    //     {user ? (
+    //       <li>
+    //         <button className="btn" onClick={onLogout}>
+    //           <AiOutlineLogout /> Logout
+    //         </button>
+    //       </li>
+    //     ) : (
+    //       <>
+    //         <li>
+    //           <Link to="/login">
+    //             <AiOutlineCheck /> Login
+    //           </Link>
+    //         </li>
+    //         <li>
+    //           <Link to="/register">
+    //             <AiOutlineUser /> Register
+    //           </Link>
+    //         </li>
+    //       </>
+    //     )}
+    //   </ul>
+    // </header>
+    <>
+      <div
+        className={`hidden lg:flex justify-between items-center w-full h-[3rem] px-16 text-black z-[100] transition-all bg-transparent duration-300 ease-in-out ${headerClass}`}
+      >
+        <div className="w-[20%] h-full flex justify-around items-center">
+          Logo
+        </div>
+        <div className="w-[80%] h-full flex gap-10 items-center justify-end font-spaceGrotesk font-semibold text-lg">
+          {/* <div
+                        className="cursor-pointer hover-underline-animation"
+                        onClick={() => handleMenuClick('patrons-section')}
+                    >
+                        Patrons
+                    </div> */}
+
+          {user ? (
+            <div onClick={onLogout}>Logout</div>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="cursor-pointer hover-underline-animation"
+                // onClick={() => router.push("/team")}
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="cursor-pointer hover-underline-animation"
+                // onClick={() => router.push("/team")}
+              >
+                Register
+              </Link>
+            </>
+          )}
+        </div>
       </div>
-      <ul>
-        {user ? (
-          <li>
-            <button className="btn" onClick={onLogout}>
-              <AiOutlineLogout /> Logout
-            </button>
-          </li>
-        ) : (
-          <>
-            <li>
-              <Link to="/login">
-                <AiOutlineCheck /> Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/register">
-                <AiOutlineUser /> Register
-              </Link>
-            </li>
-          </>
-        )}
-      </ul>
-    </header>
+
+      <div
+        className={`z-30 flex lg:hidden static justify-around items-center w-full h-[7.5vh] text-black ${headerClass}`}
+      >
+        <Link
+          to="/"
+          // onClick={() => {
+          //   router.push("/");
+          // }}
+          className="w-[20%] h-full flex justify-around items-center"
+        ></Link>
+        <div className="w-[60%] "></div>
+        <div
+          onClick={() => {
+            setModalVisibility(true);
+          }}
+          className="w-[20%] h-full flex justify-around items-center"
+        >
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M28 13.3335H4"
+              stroke="#FFFFFF"
+              strokeWidth="2.66667"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M28 8H4"
+              stroke="#FFFFFF"
+              strokeWidth="2.66667"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M28 18.6665H4"
+              stroke="#FFFFFF"
+              strokeWidth="2.66667"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M28 24H4"
+              stroke="#FFFFFF"
+              strokeWidth="2.66667"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+      {/* {modalVisibility !== false && (
+        <NavModal
+          modalVisibility={setModalVisibility}
+          visible={true}
+          // setModalDataFunc={() => {
+          //     setModalData();
+          // }}
+        />
+      )} */}
+    </>
   );
 }
 
