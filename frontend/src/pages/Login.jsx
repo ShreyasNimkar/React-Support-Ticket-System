@@ -95,9 +95,9 @@ function Login() {
           </form>
         </section>
       </div> */}
-      <div className="w-full h-[90vh] flex">
-        <div className="w-[60%] flex flex-col justify-center items-center gap-4"></div>
-        <div className="w-[40%] flex flex-col justify-center items-center gap-4">
+      <div className="w-full h-[90vh] flex sm:flex-row flex-col">
+        <div className="w-[100%] sm:w-[60%] flex-col justify-center items-center gap-4"></div>
+        <div className="w-[100%] sm:w-[40%] flex flex-col justify-center items-center gap-4">
           {/* <form onSubmit={onSubmit} className="w-[80%]">
             <div className="form-group">
               <input

@@ -117,28 +117,28 @@ function Header() {
           >
             <path
               d="M28 13.3335H4"
-              stroke="#FFFFFF"
+              stroke="#000000"
               strokeWidth="2.66667"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
             <path
               d="M28 8H4"
-              stroke="#FFFFFF"
+              stroke="#000000"
               strokeWidth="2.66667"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
             <path
               d="M28 18.6665H4"
-              stroke="#FFFFFF"
+              stroke="#000000"
               strokeWidth="2.66667"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
             <path
               d="M28 24H4"
-              stroke="#FFFFFF"
+              stroke="#000000"
               strokeWidth="2.66667"
               strokeLinecap="round"
               strokeLinejoin="round"
